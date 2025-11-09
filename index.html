@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hugo Fucksmann - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      :root {
+        --bg-light: #E5E5E5;
+        --card-light: #E5E5E5;
+        --text-light: #4A5568;
+        --text-heading-light: #2D3748;
+        --accent-light: #06B6D4; /* Cyan 500 */
+        --inner-shadow-light-1: inset 3px 3px 7px #0D275016;
+        --inner-shadow-light-2: inset -3px -3px 7px #FFFFFF;
+        --drop-shadow-light-1: 3px 3px 7px #00000025;
+        --drop-shadow-light-2: -3px -3px 7px #FFFFFF;
+        --border-color-light: #CBD5E1;
+
+        --bg-dark: #18181b; /* Zinc 900 */
+        --card-dark: #18181b;
+        --card-inset-dark: #27272a; /* Zinc 800 */
+        --text-dark: #a1a1aa; /* Zinc 400 */
+        --text-heading-dark: #f4f4f5; /* Zinc 100 */
+        --accent-dark: #22D3EE; /* Cyan 400 */
+        --inner-shadow-dark-1: inset 2px 2px 5px #00000060;
+        --inner-shadow-dark-2: inset -2px -2px 5px #3f3f4660;
+        --drop-shadow-dark-1: 5px 5px 15px #000000;
+        --drop-shadow-dark-2: -5px -5px 15px #27272a;
+        --border-color-dark: #3f3f46; /* Zinc 700 */
+      }
+      
+      .dark {
+        --bg-light: var(--bg-dark);
+        --card-light: var(--card-dark);
+        --text-light: var(--text-dark);
+        --text-heading-light: var(--text-heading-dark);
+        --accent-light: var(--accent-dark);
+        --inner-shadow-light-1: var(--inner-shadow-dark-1);
+        --inner-shadow-light-2: var(--inner-shadow-dark-2);
+        --drop-shadow-light-1: var(--drop-shadow-dark-1);
+        --drop-shadow-light-2: var(--drop-shadow-dark-2);
+        --border-color-light: var(--border-color-dark);
+      }
+      
+      body {
+        background-color: var(--bg-light);
+        transition: background-color 0.3s ease;
+      }
+
+      .neumorphic-card {
+        background-color: var(--card-light);
+        box-shadow: var(--drop-shadow-light-1), var(--drop-shadow-light-2);
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      }
+      
+      .dark .neumorphic-card {
+        border: 1px solid var(--border-color-dark);
+        box-shadow: var(--drop-shadow-dark-1), var(--drop-shadow-dark-2);
+      }
+
+      .neumorphic-inset {
+        background-color: var(--card-light);
+        box-shadow: var(--inner-shadow-light-1), var(--inner-shadow-light-2);
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .dark .neumorphic-inset {
+        background-color: var(--card-inset-dark);
+      }
+
+      .skill-tag {
+        background-color: var(--bg-light);
+        transition: background-color 0.3s ease;
+      }
+
+      .dark .skill-tag {
+         background-color: var(--bg-dark);
+         border: 1px solid var(--border-color-dark);
+      }
+
+      /* Staggered Animations */
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .fade-in-start {
+        animation: fadeIn 0.5s ease-out forwards;
+        opacity: 0;
+      }
+      .delay-1 { animation-delay: 0.1s; }
+      .delay-2 { animation-delay: 0.2s; }
+      .delay-3 { animation-delay: 0.3s; }
+      .delay-4 { animation-delay: 0.4s; }
+      .delay-5 { animation-delay: 0.5s; }
+      .delay-6 { animation-delay: 0.6s; }
+    </style>
+    <script>
+      // Set theme on initial load to prevent flash of unstyled content
+      if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
